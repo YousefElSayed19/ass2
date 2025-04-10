@@ -1,0 +1,39 @@
+.state{
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.isLogin{
+    background: rgb(69, 255, 69);
+    box-shadow: 0 0 5px 2px rgb(69, 255, 69);
+}
+.isLogout{
+    background: rgb(255, 69, 69);
+    box-shadow: 0 0 5px 2px rgb(255, 69, 69);
+}
+.logout{
+    padding: 0px;
+    display: inline;
+    background: red;
+}
+.username{
+    font-weight: bold;
+    
+    border-radius: 10px;
+    color: white;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
