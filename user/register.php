@@ -1,5 +1,9 @@
 <?php 
-    include("./connection.php");
+     $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname="shoe_store";
+    $conn = new mysqli($servername, $username, $password , $dbname);
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $full_name = $_POST["full_name"];
         $username = $_POST["username"];
@@ -12,15 +16,9 @@
         $fileName = time() . '_' . basename($_FILES['image']['name']); 
         $uploadFile = $uploadDir . $fileName;
         move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
-
-        $adminpw="admin123x";
-        $passwordOfAdmin=$_POST["admin"];
-        $admin=$_POST['adminpw'];
-        if($adminpw == $passwordOfAdmin){
-            $sql = "INSERT INTO users (full_name, username, password, email, age, phone, image,admin) VALUES ('$full_name', '$username', '$password', '$email', '$age', '$phone', '$uploadFile','$admin')";
-        }else{
-            $sql = "INSERT INTO users (full_name, username, password, email, age, phone, image,admin) VALUES ('$full_name', '$username', '$password', '$email', '$age', '$phone', '$uploadFile','null')";
-        }
+        
+        $sql = "INSERT INTO users (full_name, username, password, email, age, phone, image) VALUES ('$full_name', '$username', '$password', '$email', '$age', '$phone', '$uploadFile')";
+      
 
         $conn->query($sql);
         header("Location: login.php");
@@ -59,14 +57,6 @@
 
         <label for="image">Your Image *(Not required)</label>
         <input type="file" name="image" id="image"><br><br>
-
-        <label for="admin">Enter Password If u want To Admin</label>
-        <br>
-        <input type="password" name="admin" id="admin"><br><br>
-
-        <label for="adminpw">Enter Password for Admin</label>
-        <br>
-        <input type="password" name="adminpw" id="adminpw"><br><br>
 
         <button type="submit">Register</button>
         </form>
